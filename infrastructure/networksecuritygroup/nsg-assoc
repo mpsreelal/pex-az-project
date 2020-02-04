@@ -1,0 +1,7 @@
+resource "azurerm_subnet_network_security_group_association" "pxpconf_nsgassoc" {
+  subnet_id                 = "${var.dmz_subnetname02.id}"
+  network_security_group_id = "${azurerm_network_security_group.pxpconfnsg.id}"
+}
+
+
+
