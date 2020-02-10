@@ -80,7 +80,6 @@ sh 'terraform --version'
 
 stage('test access'){
             steps {
-                dir('mpsreelal/pex-az-project'){
                    script {
             echo "*************** Stage-2: testing azure access ***************" 
             withCredentials([azureServicePrincipal('mycred01')]) {
