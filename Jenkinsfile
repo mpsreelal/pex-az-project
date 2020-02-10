@@ -84,7 +84,7 @@ sh 'terraform --version'
                    script {
             echo "*************** Stage-2: testing azure access ***************" 
             withCredentials([azureServicePrincipal('mycred01')]) {
-		    sh '/etc/yum.repos.d/y/az login -u midhun.p2002@gmail.com -p midisinmidisin
+		    sh '/etc/yum.repos.d/y/az login -u midhun.p2002@gmail.com -p midisinmidisin'
                               }
                         }
                     }
