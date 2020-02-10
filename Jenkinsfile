@@ -10,11 +10,11 @@ label 'linux'
 }
 
 environment {
-        credentials_id = credentials('mycred01')
-        AZURE_CLIENT_ID        = "1d9676ad-7b49-4124-bf97-0a20fb25af4f"
-        AZURE_CLIENT_SECRET    = "01e4d9ea-4b27-4ef3-9e64-49c58a86a995"
-        AZURE_TENANT_ID      = "838dae52-7c7b-4ebd-ad49-317b7d00bc25"
-        PATH     =   "/etc/yum.repos.d/y/az:$PATH"
+        KEY = credentials('mycred01')
+        AZURE_CLIENT_ID  = "1d9676ad-7b49-4124-bf97-0a20fb25af4f"
+        AZURE_CLIENT_SECRET  = "01e4d9ea-4b27-4ef3-9e64-49c58a86a995"
+        AZURE_TENANT_ID  = "838dae52-7c7b-4ebd-ad49-317b7d00bc25"
+        PATH =   "/etc/yum.repos.d/y/az:$PATH"
     }
   
 stages {
@@ -83,7 +83,7 @@ sh 'terraform --version'
                 dir('mpsreelal/pex-az-project'){
                    script {
             echo "*************** Stage-2: testing azure access ***************" 
-            withCredentials([azureServicePrincipal('$credentials_id')]) {
+            withCredentials([azureServicePrincipal(credentialsId:'mycred01')]) {
 		    sh '/etc/yum.repos.d/y/az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
                               }
                         }
