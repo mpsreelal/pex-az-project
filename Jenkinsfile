@@ -81,7 +81,7 @@ sh 'terraform --version'
 stage('test access'){
             steps {
                    script {
-            echo "*************** Stage-2: testing azure access ***************" 
+            sh 'echo "*************** Stage-2: testing azure access ***************"'
             withCredentials([azureServicePrincipal('mycred01')]) {
 		    sh '/etc/yum.repos.d/y/az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
                               }
