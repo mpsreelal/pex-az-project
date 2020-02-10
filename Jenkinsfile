@@ -87,8 +87,6 @@ stage('test access'){
                               }
                         }
                     }
-                }
-            }
 
 }
 
