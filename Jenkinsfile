@@ -83,8 +83,8 @@ sh 'terraform --version'
                 dir('mpsreelal/pex-az-project'){
                    script {
             echo "*************** Stage-2: testing azure access ***************" 
-            withCredentials([azureServicePrincipal('mycred01')]) {
-		    sh '/etc/yum.repos.d/y/az login -u midhun.p2002@gmail.com -p midisinmidisin'
+            withCredentials([azureServicePrincipal('$credentials_id')]) {
+		    sh '/etc/yum.repos.d/y/az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
                               }
                         }
                     }
