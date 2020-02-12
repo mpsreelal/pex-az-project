@@ -51,14 +51,14 @@ agent {
 			 dir('mpsreelal/pex-az-project'){
                    script {
 	echo "*************** Stage-2: Initialze and setting Up Azure login***********"
-            sh 'sudo cd /usr'
+            sh 'cd /usr'
             sh 'sudo mkdir py'
 	    sh 'pwd'   
-            sh 'sudo cd py/'
+            sh 'cd py/'
             sh 'sudo wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz'
             sh 'sudo tar xJf Python-3.6.3.tar.xz'
 	    sh 'pwd'  
-            sh 'sudo cd /usr/py/Python-3.6.3'
+            sh 'cd /usr/py/Python-3.6.3'
 	    sh 'pwd'  
             sh 'sudo ./configure'
             sh 'sudo make install'
