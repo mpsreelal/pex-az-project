@@ -44,6 +44,36 @@ agent {
                     }
                 }
             }
+             
+             
+     stage('Initialise azlogin'){
+            steps {
+			 dir('mpsreelal/pex-az-project'){
+                   script {
+	echo "*************** Stage-2: Initialze and setting Up Azure login***********"
+            sh 'cd /usr'
+            sh 'mkdir py'
+            sh 'cd py/'
+            sh 'wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz'
+            sh 'tar xJf Python-3.6.3.tar.xz'
+            sh 'cd Python-3.6.3'
+            sh './configure'
+            sh 'make install'
+            sh 'python3 -V'
+            sh 'curl -L https://aka.ms/InstallAzureCli | bash'
+            sh '/usr/bin/python --version'
+            sh 'mv /usr/bin/python /usr/bin/python.old'
+            sh 'ln -s /usr/local/bin/python3.6 /usr/bin/python'
+            sh '/usr/bin/python --version'
+            sh 'curl -L https://aka.ms/InstallAzureCli | bash'
+            sh 'unlink /usr/bin/python2'
+            sh 'ln -s /usr/bin/python.old /usr/bin/python2'
+            sh "sed -i 's/python/python.2/' /usr/bin/yum"
+                       
+		      }
+                    }
+                }
+            }
 
             stage('test access'){
             steps {
