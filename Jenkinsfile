@@ -52,6 +52,7 @@ agent {
                    script {
 	echo "*************** Stage-2: Initialze and setting Up Azure login***********"
             sh 'cd /usr'
+	    sh 'sudo rm -rf /usr/py'	   
             sh 'sudo mkdir py'
 	    sh 'pwd'   
             sh 'cd py/'
