@@ -66,7 +66,8 @@ agent {
                       sh 'terraform init'
                       sh 'pwd'
                       sh 'echo $PATH'
-                      sh 'terraform plan -no-color'
+                      sh 'terraform plan -no-color -out terraform.plan'
+                      sh 'terraform apply -auto-approve terraform.plan'
                      }
                   }
               }
