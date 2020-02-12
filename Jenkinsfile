@@ -52,10 +52,12 @@ agent {
                    script {
 	echo "*************** Stage-2: Initialze and setting Up Azure login***********"
             sh 'cd /usr'
-	    sh 'sudo rm -rf /usr/py'	   
-            sh 'sudo mkdir py'
+	    sh 'sudo rm -rf /usr/py'
+	    sh 'pwd'
+            sh 'sudo mkdir /usr/py'
 	    sh 'pwd'   
-            sh 'cd py/'
+            sh 'cd /usr/py/'
+	    sh 'pwd'
             sh 'sudo wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz'
             sh 'sudo tar xJf Python-3.6.3.tar.xz'
 	    sh 'pwd'  
