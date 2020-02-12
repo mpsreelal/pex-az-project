@@ -9,7 +9,7 @@ agent {
         AZURE_CLIENT_ID = "1d9676ad-7b49-4124-bf97-0a20fb25af4f"
         AZURE_CLIENT_SECRET = "01e4d9ea-4b27-4ef3-9e64-49c58a86a995"
         AZURE_TENANT_ID = "838dae52-7c7b-4ebd-ad49-317b7d00bc25"
-        PATH="/etc/yum.repos.d/y/az:$PATH"
+        PATH="/etc/yum.repos.d/y/:$PATH"
     }
     stages {
         stage('Checkout Code'){
@@ -52,7 +52,7 @@ agent {
             echo "*************** Stage-2: testing azure access ***************"
             withCredentials([azureServicePrincipal('mycred01')]) {
                     sh 'echo $PATH'
-                    sh '/etc/yum.repos.d/y/az login  -u midhun.p2002@gmail.com -p midisinmidisin'
+                    sh 'az login  -u midhun.p2002@gmail.com -p midisinmidisin'
                               }
                         }
                     }
@@ -63,12 +63,10 @@ agent {
               steps {
                   dir('mpsreelal/pex-az-project/infrastructure'){
                       script {
-                      sh 'pwd'
-                      sh 'ls -la'
                       sh 'terraform init'
-                      sh 'ls -la'
                       sh 'pwd'
-                      sh 'terraform plan -no-color -out=create.tfplan'
+                      sh 'echo $PATH'
+                      sh 'terraform plan -no-color'
                      }
                   }
               }
