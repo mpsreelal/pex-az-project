@@ -48,7 +48,6 @@ agent {
              
      stage('Initialise azlogin'){
             steps {
-			 dir('mpsreelal/pex-az-project'){
                    script {
 	echo "*************** Stage-2: Initialze and setting Up Azure login***********"
             sh 'cd /usr'
