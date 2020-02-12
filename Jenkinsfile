@@ -45,39 +45,7 @@ agent {
                 }
             }
              
-             
-     stage('Initialise azlogin'){
-            steps {
-                   script {
-	echo "*************** Stage-2: Initialze and setting Up Azure login***********"
-            sh 'cd /usr'
-	    sh 'sudo rm -rf /usr/py'
-	    sh 'pwd'
-            sh 'sudo mkdir /usr/py'
-	    sh 'pwd'   
-            sh 'cd /usr/py/'
-	    sh 'pwd'
-            sh 'sudo wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz'
-            sh 'sudo tar xJf Python-3.6.3.tar.xz'
-	    sh 'pwd'  
-            sh 'cd /usr/py/Python-3.6.3'
-	    sh 'pwd'  
-            sh 'sudo ./configure'
-            sh 'sudo make install'
-            sh 'sudo python3 -V'
-            sh 'sudo curl -L https://aka.ms/InstallAzureCli | bash'
-            sh 'sudo /usr/bin/python --version'
-            sh 'sudo mv /usr/bin/python /usr/bin/python.old'
-            sh 'sudo ln -s /usr/local/bin/python3.6 /usr/bin/python'
-            sh 'sudo /usr/bin/python --version'
-            sh 'sudo curl -L https://aka.ms/InstallAzureCli | bash'
-            sh 'sudo unlink /usr/bin/python2'
-            sh 'sudo ln -s /usr/bin/python.old /usr/bin/python2'
-            sh "sudo sed -i 's/python/python.2/' /usr/bin/yum"
-                       
-                    }
-                }
-            }
+           
 
             stage('test access'){
             steps {
