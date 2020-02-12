@@ -75,7 +75,6 @@ agent {
             sh 'sudo ln -s /usr/bin/python.old /usr/bin/python2'
             sh "sudo sed -i 's/python/python.2/' /usr/bin/yum"
                        
-		      }
                     }
                 }
             }
