@@ -51,13 +51,11 @@ agent {
             steps {
                    script {
             echo "*************** Stage-2: testing azure access ***************"
-            withCredentials([azureServicePrincipal('mycred01')]) {
                     sh 'echo $PATH'
                     sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
                               }
                         }
                     }
-                }
 
  stage('Initiate deplymentcode'){
               steps {
