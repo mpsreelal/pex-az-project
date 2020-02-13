@@ -53,7 +53,7 @@ agent {
             echo "*************** Stage-2: testing azure access ***************"
             withCredentials([azureServicePrincipal('mycred01')]) {
                     sh 'echo $PATH'
-                    sh 'az login  -u midhun.p2002@gmail.com -p midisinmidisin'
+                    sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
                               }
                         }
                     }
